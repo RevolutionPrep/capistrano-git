@@ -19,9 +19,15 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "VERSION",
+    "capistrano-git.gemspec",
+    "lib/capistrano/git.rb",
+    "lib/capistrano/git/overrides.rb",
+    "lib/capistrano/git/strategy.rb",
     "test/helper.rb",
     "test/test_capistrano-git.rb"
   ]
