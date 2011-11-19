@@ -26,7 +26,6 @@ module Capistrano
           end
           get_tag
           deploy_no_tag
-          bundle_gems
         end
 
         def rollback!
@@ -37,7 +36,6 @@ module Capistrano
           end
           run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} git checkout ."
           run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} git checkout #{@tag}"
-          bundle_gems
         end
 
         def migrate!
@@ -51,12 +49,6 @@ module Capistrano
           puts "\n\n### RESTART!: Restarting the Passengers...\n\n"
           run "sudo chown -R #{configuration[:passenger_user]}:#{configuration[:passenger_group]} #{configuration[:deploy_to]}"
           run "sudo touch #{configuration[:deploy_to]}/tmp/restart.txt"
-        end
-
-        def rebuild_bundle!
-          puts "\n\n### REBUILDING BUNDLE!: Wiping the existing bundle and rebuilding from scratch...\n\n"
-          run "sudo rm -rf #{configuration[:deploy_to]}/vendor/bundle"
-          bundle_gems
         end
 
         protected
@@ -90,14 +82,6 @@ module Capistrano
             puts "\n\n### DEPLOY NO TAG: Deploying to #{configuration[:stage]} at #{configuration[:deploy_to]}\n\n"
             run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} git checkout . && sudo -u #{configuration[:sudo_user]} git checkout #{configuration[:branch]}" # make sure we're on the right branch
             run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} git pull" # get head
-          end
-
-          def bundle_gems
-            return if !!configuration[:no_bundler]
-            puts "\n\n### BUNDLE GEMS: Bundling up gems into vendor/bundle\n\n"
-            args = ["--deployment"]
-            args << "--without #{configuration[:bundle_without].join(" ")}" unless configuration[:bundle_without].empty?
-            run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} #{configuration[:ruby_bin_dir]}/bundle install #{args.join(' ')}"
           end
 
       end
