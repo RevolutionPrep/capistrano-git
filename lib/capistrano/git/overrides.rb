@@ -1,5 +1,3 @@
-require 'capistrano'
-# OVERRIDES
 Capistrano::Configuration.instance.load do
   namespace :deploy do
     desc <<-DESC

@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "capistrano-git.gemspec",
-    "lib/capistrano/git.rb",
+    "lib/capistrano/git/bootstrap.rb",
     "lib/capistrano/git/overrides.rb",
     "lib/capistrano/git/strategy.rb",
     "test/helper.rb",
