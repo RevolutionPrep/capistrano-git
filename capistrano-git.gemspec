@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Ryan Moran}]
-  s.date = %q{2011-11-19}
+  s.date = %q{2011-11-21}
   s.description = %q{Capistrano recipe for deploying from git}
   s.email = %q{ryan.moran@gmail.com}
   s.extra_rdoc_files = [
