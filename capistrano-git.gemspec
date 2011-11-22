@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{capistrano-git}
-  s.version = "0.0.0"
+  s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Ryan Moran}]
-  s.date = %q{2011-11-21}
+  s.date = %q{2011-11-22}
   s.description = %q{Capistrano recipe for deploying from git}
   s.email = %q{ryan.moran@gmail.com}
   s.extra_rdoc_files = [
