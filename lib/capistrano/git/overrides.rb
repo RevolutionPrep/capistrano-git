@@ -44,13 +44,6 @@ Capistrano::Configuration.instance.load do
     task :symlink, :except => { :no_release => true } do
     end
 
-    namespace :bundle do
-      desc "Wipe out and rebuild the existing bundle."
-      task :rebuild do
-        strategy.rebuild_bundle!
-      end
-    end
-
     desc <<-DESC
       Copy files to the currently deployed version. This is useful for updating \
       files piecemeal, such as when you need to quickly deploy only a single \
