@@ -4,20 +4,21 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{capistrano-git}
-  s.version = "0.0.1"
+  s.name = "capistrano-git"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Ryan Moran}]
-  s.date = %q{2011-11-22}
-  s.description = %q{Capistrano recipe for deploying from git}
-  s.email = %q{ryan.moran@gmail.com}
+  s.authors = ["Ryan Moran"]
+  s.date = "2011-12-06"
+  s.description = "Capistrano recipe for deploying from git"
+  s.email = "ryan.moran@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
   ]
   s.files = [
     ".document",
+    ".rvmrc",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -31,11 +32,11 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_capistrano-git.rb"
   ]
-  s.homepage = %q{http://github.com/ryanmoran/capistrano-git}
-  s.licenses = [%q{MIT}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Capistrano recipe for deploying from git}
+  s.homepage = "http://github.com/ryanmoran/capistrano-git"
+  s.licenses = ["MIT"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = "1.8.11"
+  s.summary = "Capistrano recipe for deploying from git"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
