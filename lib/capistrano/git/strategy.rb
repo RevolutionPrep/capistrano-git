@@ -42,7 +42,8 @@ module Capistrano
           puts "\n\n### MIGRATE!: Migrating...\n\n"
           run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} git checkout #{configuration[:branch]}"
           run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} git pull"
-          run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} #{configuration[:ruby_bin_dir]}/bundle exec rake db:migrate --trace RAILS_ENV=#{configuration[:rails_env]}"
+          rake_command = configuration[:without_bundler] ? "#{configuration[:ruby_bin_dir]}/rake" : "#{configuration[:ruby_bin_dir]}/bundle exec rake"
+          run "cd #{configuration[:deploy_to]} && sudo -u #{configuration[:sudo_user]} #{rake_command} db:migrate --trace RAILS_ENV=#{configuration[:rails_env]}"
         end
 
         def restart!
